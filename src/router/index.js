@@ -1,9 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
 // 路由规则
-const routes = [
-  
-];
+const routes = [];
 
 // 创建路由实例
 const router = createRouter({
