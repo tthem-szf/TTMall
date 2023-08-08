@@ -32,5 +32,10 @@
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
+  },
+  "eslintConfig": {
+    "rules": {
+      "eslint-disable-next-line": false
+    }
   }
 }

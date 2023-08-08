@@ -9,9 +9,26 @@
 import { createStore } from "vuex";
 
 export default createStore({
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
+  state: {
+    username: 'TT',
+  },
+  getters: {
+    myUsername(state) {
+      return state.username + "!!!!!!!!";
+    }
+  },
+  mutations: {
+    updateUsername(state, newName) {
+      console.log('有人调用我！！！');
+      state.username = newName;
+    }
+  },
+  actions: {
+    updateUsername(ctx, newName) {
+      setTimeout(() => {
+        ctx.commit('updateUsername', newName)
+      }, 2000);
+    }
+  },
   modules: {},
 });
