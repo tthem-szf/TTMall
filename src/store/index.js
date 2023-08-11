@@ -7,28 +7,20 @@
  * @LastEditTime: 2023-08-08 09:06:47
  */
 import { createStore } from "vuex";
+// import VuexPersister from 'vuex-persister'
+import createPersistedstate from 'vuex-persistedstate'
+import category from './modules/category';
+import cart from './modules/cart';
+import user from './modules/user';
 
 export default createStore({
-  state: {
-    username: 'TT',
+  modules: {
+    category,
+    cart,
+    user
   },
-  getters: {
-    myUsername(state) {
-      return state.username + "!!!!!!!!";
-    }
-  },
-  mutations: {
-    updateUsername(state, newName) {
-      console.log('有人调用我！！！');
-      state.username = newName;
-    }
-  },
-  actions: {
-    updateUsername(ctx, newName) {
-      setTimeout(() => {
-        ctx.commit('updateUsername', newName)
-      }, 2000);
-    }
-  },
-  modules: {},
+  plugins: [createPersistedstate({
+    key:'TTMall-pc-store',
+    paths:[user,cart]
+  })]
 });
